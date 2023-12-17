@@ -3,12 +3,15 @@ import Navbar from "./components/Navbar/Navbar";
 import Description from "./components/Home/Description.jsx";
 import Image from "./components/Home/Image.jsx";
 import Home from "./components/Home";
+import BtnText from "./components/Home/BtnText.jsx";
 function App() {
   return (
     <>
       <Navbar />
       <Home>
-        <Description />
+        <Description>
+          <BtnText />
+        </Description>
         <Image />
       </Home>
     </>

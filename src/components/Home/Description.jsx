@@ -1,6 +1,4 @@
-import BtnText from "./Btn-Text.jsx";
-
-function Description() {
+function Description({ children }) {
   return (
     <div className="desc md:w-1/2 md:mx-[3rem]  mt-20 md:mt-0 w-[300px]">
       <h1 className="md:text-[5rem] font-montserrat font-semibold text-[1.9rem] ">
@@ -17,7 +15,7 @@ function Description() {
         Succelent slices of perfectly grilled steak, seared to a mouthwatering
         medium-rare, excude a rich , smoky aroma that fills the air.
       </p>
-      <BtnText />
+      {children}
     </div>
   );
 }
