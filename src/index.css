@@ -9,6 +9,7 @@
   --black: #1d1818;
   --red: #f03a20;
   --redHover: #c72911;
+  --buttonss: linear-gradient(318deg, rgba(240,58,32,1) 43%, rgba(255,255,255,1) 76%);;
 }
 
 * {

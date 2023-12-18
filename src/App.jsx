@@ -1,19 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Description from "./components/Home/Description.jsx";
-import Image from "./components/Home/Image.jsx";
-import Home from "./components/Home";
-import BtnText from "./components/Home/BtnText.jsx";
+import Home from "./containers/Home";
+
 function App() {
   return (
     <>
       <Navbar />
-      <Home>
-        <Description>
-          <BtnText />
-        </Description>
-        <Image />
-      </Home>
+      <Home />
+      
+    
     </>
   );
 }
