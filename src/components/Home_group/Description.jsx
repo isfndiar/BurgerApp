@@ -1,7 +1,7 @@
 function Description({ children }) {
   return (
     <div className="desc md:w-1/2 md:mx-[3rem]  mt-20 md:mt-0 w-[300px]">
-      <h1 className="md:text-[5rem] font-montserrat font-semibold text-[1.9rem] ">
+      <h1 className="md:text-[5rem] font-Kalnia font-semibold text-[1.9rem] ">
         SAVOR THE FLAVOR{" "}
         <span className=" relative inline-block  ">
           <img

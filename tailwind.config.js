@@ -7,6 +7,7 @@ export default {
       poppins: ["Poppins", "sans-serif"],
       glass: ["Glass Antiqua", "cursive"],
       montserrat: ["Montserrat", "sans-serif"],
+      Kalnia: ["Kalnia", "serif"],
     },
   },
   plugins: [],

@@ -7,15 +7,16 @@ function Navbar() {
   const [visible, setVisible] = useState(true);
 
   const handleScroll = () => {
-    // const currentScrollPos = window.scrollY;
-    // const isVisible = prevScrollPos > currentScrollPos;
-    // setPrevScrollPos(currentScrollPos);
-    // setVisible(isVisible);
-    if (window.scrollY == 200 || window.scrollY > 200) {
-      setVisible(!true);
-    } else if (window.scrollY == 0) {
-      setVisible(true);
-    }
+    const currentScrollPos = window.scrollY;
+    const isVisible = prevScrollPos > currentScrollPos;
+    setPrevScrollPos(currentScrollPos);
+    setVisible(isVisible);
+    // if (window.scrollY == 200 || window.scrollY > 200) {
+    //   setVisible(!true);
+    // } else if (window.scrollY == 0) {
+    //   setIsActive(false);
+    //   setVisible(true);
+    // }
   };
 
   const handleClick = () => {

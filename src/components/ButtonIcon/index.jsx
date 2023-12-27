@@ -1,5 +1,5 @@
-import IconFood from "./IconFood";
-import Button from "./HomeButton";
+import IconFood from "./Icon";
+import Button from "./Button";
 export default function BtnIconText() {
   return (
     <div className="mt-5 flex  ">
@@ -14,5 +14,3 @@ export default function BtnIconText() {
     </div>
   );
 }
-
-
