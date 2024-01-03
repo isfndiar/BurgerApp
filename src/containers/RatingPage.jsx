@@ -10,6 +10,7 @@ const listNew = [
     text1: "Expert",
     text2: "Chef",
     amount: "40+",
+    classname: "border-x border-white",
   },
   {
     id: crypto.randomUUID(),
@@ -28,6 +29,7 @@ export default function RatingPage() {
           text1={list.text1}
           text2={list.text2}
           amount={list.amount}
+          classname={list.classname}
         />
       ))}
     </div>
