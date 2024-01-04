@@ -4,6 +4,7 @@ import Home from "./containers/HomePage";
 import About from "./containers/About";
 import RatingPage from "./containers/RatingPage";
 import Menu from "./containers/Menu";
+import ChooseUs from "./containers/ChooseUs";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
       <RatingPage />
       <About />
       <Menu />
+      <ChooseUs />
     </>
   );
 }

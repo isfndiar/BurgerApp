@@ -2,10 +2,10 @@ import { content } from "../../services/newMenu";
 import NewMenu from "./NewMenu";
 function NewArrive() {
   return (
-    <div className=" mt-[6rem] px-[5rem]">
-      <b className="font-montserrat text-3xl font-semibold">NewArrive</b>
+    <div className=" mt-[6rem] px-[5rem] text-center md:text-left">
+      <b className="font-montserrat text-3xl font-semibold  ">NewArrive</b>
       <div
-        className="listMenu flex justify-between"
+        className="flex justify-between md:flex-nowrap flex-wrap"
         style={
           content
             ? { display: "flex", justifyContent: "space-between" }

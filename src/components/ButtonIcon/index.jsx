@@ -1,8 +1,8 @@
 import IconFood from "./Icon";
 import Button from "./Button";
-export default function BtnIconText() {
+export default function ButtonIcon() {
   return (
-    <div className="mt-5 flex  ">
+    <div className="md:mt-5 mt-10  flex   ">
       <Button>Explore Menu</Button>
       <div className=" mx-[15px]">
         <IconFood />

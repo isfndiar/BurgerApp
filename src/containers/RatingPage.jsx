@@ -41,10 +41,10 @@ function Rating(props) {
   return (
     <div
       key={key}
-      className={`row flex items-center gap-3   px-[100px] ${classname} text-center `}
+      className={`flex items-center gap-3 md:px-[100px] px-7 ${classname} text-center  `}
     >
-      <h3 className=" font-Kalnia text-[4rem]">{amount}</h3>
-      <div className=" font-montserrat font-light">
+      <h3 className=" font-Kalnia md:text-[4rem] text-lg ">{amount}</h3>
+      <div className=" font-montserrat font-light md:text-xl text-sm ">
         <p>{text1}</p>
         <p>{text2}</p>
       </div>
