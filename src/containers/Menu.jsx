@@ -2,9 +2,12 @@ import { listFood } from "../services/ListFood";
 import MenuCard from "../components/Fragments/MenuCard";
 export default function Menu() {
   return (
-    <div className="bg-black min-h-screen text-white py-20 mt-20" id="menu">
+    <div
+      className="bg-[var(--black)] min-h-screen text-white py-20 mt-20"
+      id="menu"
+    >
       <Header />
-      <ul className="flex flex-wrap    justify-center text-center md:px-36 ">
+      <ul className="flex flex-wrap     justify-center text-center md:px-36 ">
         {listFood.map((item) => (
           <li key={item.id} className=" md:w-1/4 w-1/2 px-2  mt-10">
             <MenuCard

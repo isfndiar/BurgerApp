@@ -1,10 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./containers/Navbar";
-import Home from "./containers/HomePage";
-import About from "./containers/About";
-import RatingPage from "./containers/RatingPage";
-import Menu from "./containers/Menu";
-import ChooseUs from "./containers/ChooseUs";
+import {
+  About,
+  ChooseUs,
+  Home,
+  Menu,
+  Navbar,
+  RatingPage,
+  HearFromPeople,
+} from "./containers";
+import Footer from "./containers/Footer";
 function App() {
   return (
     <>
@@ -14,6 +18,8 @@ function App() {
       <About />
       <Menu />
       <ChooseUs />
+      <HearFromPeople />
+      <Footer />
     </>
   );
 }

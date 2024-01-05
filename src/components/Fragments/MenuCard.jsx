@@ -13,7 +13,7 @@ export default function MenuCard({ src, name, desc, price }) {
 function Header({ src }) {
   return (
     <>
-      <header className="border border-white rounded-full w-1/2  md:w-[17rem] md:h-[17rem] md:px-6 md:py-5 px-3 py-2 m-auto  mb-6">
+      <header className="border border-white rounded-full w-1/2  md:w-[15rem] md:h-[15rem] md:px-6 md:py-5 px-3 py-2 m-auto  mb-6">
         <img src={src} alt="list-makanan" />
       </header>
     </>
@@ -33,7 +33,7 @@ function Footer({ price }) {
   return (
     <footer className="flex flex-col items-center mt-4">
       <h3 className="text-2xl font-bold font-montserrat">{price}</h3>
-      <button className="flex justify-center md:w-[200px] max-w-[200px]  md:py-2 py-3 px-2 gap-3 bg-gray-900 border border-white rounded-full mt-2 hover:bg-gray-800">
+      <button className="flex justify-center md:w-[200px] max-w-[200px]  md:py-2 py-3 px-2 gap-3  border border-1 border-white rounded-full mt-2 hover:bg-gray-800">
         <Icon.ShoppingCart className="text-white  " />
         Add To Card
       </button>

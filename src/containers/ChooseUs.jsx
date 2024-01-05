@@ -1,3 +1,4 @@
+import Button from "../components/ButtonIcon/Button";
 import ChooseCard from "../components/Fragments/ChooseCard";
 
 const content = [
@@ -23,9 +24,10 @@ const content = [
 
 export default function ChooseUs() {
   return (
-    <div className="h-screen text-center py-20">
+    <div className="min-h-screen text-center py-20">
       <Header />
       <Main />
+      <Button classname={"mt-20 shadow-none"}>Contact Us</Button>
     </div>
   );
 }
