@@ -8,7 +8,7 @@ const content = [
     name: "Alex Graham Bell",
   },
   {
-    id: 0,
+    id: 1,
     src: "food-about.jpg",
     desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate vel error accusamus aliquid nostrum vitae cumque consequatur deserunt vero rem, quia inventore eveniet voluptate placeat?",
     name: "Alex Graham Bell",
@@ -39,14 +39,12 @@ function Body() {
   return (
     <ul className="flex gap-10 mt-20 px-10">
       {content.map((item) => (
-        <>
           <RecomendCard
-            key={item.id}
+            key={`${item.name}-${item.id}`}
             src={item.src}
             desc={item.desc}
             name={item.name}
           />
-        </>
       ))}
     </ul>
   );

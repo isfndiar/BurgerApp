@@ -25,7 +25,7 @@ export default function RatingPage() {
     <div className="w-full bg-black  text-white text-semibold flex justify-between mt-16 py-16">
       {listNew.map((list, x) => (
         <Rating
-          key={x}
+          key={list.id}
           text1={list.text1}
           text2={list.text2}
           amount={list.amount}
@@ -37,10 +37,9 @@ export default function RatingPage() {
 }
 
 function Rating(props) {
-  const { amount, text1, text2, classname, key } = props;
+  const { amount, text1, text2, classname } = props;
   return (
     <div
-      key={key}
       className={`flex items-center gap-3 md:px-[100px] px-7 ${classname} text-center  `}
     >
       <h3 className=" font-Kalnia md:text-[4rem] text-lg ">{amount}</h3>

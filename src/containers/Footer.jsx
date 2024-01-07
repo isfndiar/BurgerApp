@@ -1,83 +1,162 @@
-const data = [
+import * as Icon  from "react-feather";
+
+const datas = [
   {
+    
     title: 'Quick Menu',
-    href: ['#home','#menu', '#food', '#service', '#about' ],
-    name: ['Home', 'Menu', 'Food', 'Service', 'About Us']
+    data : [
+      {
+        id: 0,
+        href: '#home',
+        name: 'Home',
+      },
+      {
+        id: 1,
+        href: '#menu',
+        name: 'Menu',
+      },
+      {
+        id: 2,
+        href: '#food',
+        name: 'Food',
+      },
+      {
+        id: 3,
+        href: '#service',
+        name: 'Service',
+      },
+      {
+        id: 4,
+        href: '#about',
+        name: 'About Us',
+      },
+    ]
   },
   {
     title: 'SUPPORT',
-    href: ['#feedback','#support', '#faq', '#delivery' ],
-    name: ['Give Us Feedback', 'Support Center', 'Faq', 'Delivery Process']
+    data : [
+      {
+        id: 5,
+        href: '#feedback',
+        name: 'Give Us Feedback',
+      },
+      {
+        id: 6,
+        href: '#support',
+        name: 'Support Center',
+      },
+      {
+        id: 7,
+        href: '#faq',
+        name: 'Faq',
+      },
+      {
+        id: 8,
+        href: '#delivery',
+        name: 'Delivery Process',
+      },
+    ]
   },
   {
     title: 'CONTACT',
-    href: ['#num1','#num2', 'email' ],
-    name: ['+086822139093', '+089677348199', 'JhoenDoeLawra@gmail.com']
+    data: [
+      {
+        id: 9,
+        href: '#num1',
+        name: '+089677348199',
+      },
+      {
+        id: 10,
+        href: '#num2',
+        name: '+086822139093',
+      },
+      {
+        id: 11,
+        href: 'email',
+        name: 'JhoenDoeLawra@gmail.com'
+      },
+    ]
   },
 ]
 export default function Footer() {
   return (
     <>
-      <div className=" py-20">
+      <div className=" pt-10 pb-10">
         <div className="flex justify-between px-20">
-         <Header />
-          <QuickMenu />
-         <Support />
-         <Contact />
+         
+         <Header /> {/*  header UI Lover */}
+         <Navbar /> {/*quick menu etc */}
         </div>
+        <div className=" px-20 mt-12">
+          <div className="border-t border-gray-500 mb-4"></div> {/* hr section  */}
+          <Social />
+        </div>
+
+
       </div>
     </>
   );
 }
 
+
+
 function Header () {
   return (
-    <div className="w-1/2 flex flex-col px-10  ">
-    <a href={"#"} className="font-bold"> UI LOVER</a>
-    <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, doloremque!</p>
+    <div className="w-1/4 me-20 flex flex-col px-10  ">
+    <a href={"#"} className="font-bold mb-4"> UI LOVER</a>
+    <p className="font-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, doloremque!</p>
   </div>
   )
 }
 
-function QuickMenu () {
+
+function Navbar () {
   return (
-<div className="w-1/4">
-            <h1>QUICK MENU</h1>
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#menu">Menu</a></li>
-              <li><a href="#food">Food</a></li>
-              <li><a href="#services">Service</a></li>
-              <li><a href="#about">About Us</a></li>
-            </ul>
+    <>
+    {datas.map((item) => (
+      <div key={item.title} className="w-1/4">
+        <h1>{item.title}</h1>
+        <ul className="list-none">
+        {item.data.map(items => (
+          <li  key={items.id} className="font-light mt-1">
+            <a href={items.href} className="hover:text-blue-900 hover:font-semibold">{items.name}</a>
+          </li>
+        ))}
+        </ul>
+      </div>
+    ))}
+    </>
+  )
+}
+
+function Social () {
+  const classLink = "border border-gray-700 rounded-full p-[1px]  ";
+  const classIcon = " text-gray-500  p-1 hover:text-blue-900 hover:font-semibold  ";
+  return (
+    <div className="flex justify-between">
+
+    <div className=" flex gap-5">
+
+            <a href="" className={classLink}>
+          <Icon.Facebook className={classIcon} />
+            </a>
+            <a href="" className={classLink}>
+          <Icon.Instagram className={classIcon} />
+            </a>
+            <a href="" className={classLink}>
+          <Icon.Youtube className={classIcon} />
+            </a>
+            <a href="" className={classLink}>
+          <Icon.Twitter className={classIcon} />
+            </a>
           </div>
+          <div className="font-light text-end">
+            CopyRight @ 2024 All rights reserved
+          </div>
+ </div>
   )
 }
 
 
-function Support () {
-  return (
-    <div className="w-1/4">
-    <h1>SUPPORT</h1>
-    <ul>
-    <li><a href="#feedback">Give Us Feedback</a></li>
-      <li><a href="#support">Support Center</a></li>
-      <li><a href="#faq">Faq</a></li>
-      <li><a href="#delvery">Delivery Process</a></li>
-    </ul>
-  </div>
-  )
-}
 
-function Contact (){
-  return (
-    <div className="w-1/4">
-    <h1>CONTACT</h1>
-    <ul>
-    <li><a href="#num1">+086822139093</a></li>
-      <li><a href="#num2">+089677348199</a></li>
-      <li><a href="#email">JhoenDoeLawra@gmail.com</a></li>
-    </ul>
-  </div>
-  )
-}
+

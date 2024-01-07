@@ -4,7 +4,7 @@ export default function Menu() {
   return (
     <div
       className="bg-[var(--black)] min-h-screen text-white py-20 mt-20"
-      id="menu"
+      id="food"
     >
       <Header />
       <ul className="flex flex-wrap     justify-center text-center md:px-36 ">
