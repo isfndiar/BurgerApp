@@ -30,38 +30,10 @@ body {
   background-color: var(--primary);
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  font-size: 1.2rem;
 
-  color: black;
-  font-weight: bold;
-  padding: 1.5rem 5%;
-  z-index: 99999;
-  transition: 0.2s ease-in-out;
-}
 
-nav.active {
-  transform: translateY(-100px);
-}
 
-nav .logo {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
 
-.list-link {
-  margin-left: 20px;
-  display: flex;
-  column-gap: 50px;
-  transition: 1s ease;
-}
 
-.list-link a {
-  color: black;
-}
+
+
