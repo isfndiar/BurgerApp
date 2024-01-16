@@ -1,4 +1,4 @@
-import { mockData } from "../../services/mockData";
+import { mockData } from "../../../services/mockData";
 function IconFood() {
   return (
     <div className="menu-food-ratings flex w-[200px]  relative ">

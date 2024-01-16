@@ -1,4 +1,3 @@
-import React from "react";
 import ButtonIcon from "../ButtonIcon";
 
 export default function Description() {

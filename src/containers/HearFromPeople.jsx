@@ -1,4 +1,4 @@
-import Button from "../components/ButtonIcon/Button";
+import Button from "../components/Elements/ButtonIcon/Button";
 
 const content = [
   {
@@ -39,12 +39,12 @@ function Body() {
   return (
     <ul className="flex gap-10 mt-20 px-10">
       {content.map((item) => (
-          <RecomendCard
-            key={`${item.name}-${item.id}`}
-            src={item.src}
-            desc={item.desc}
-            name={item.name}
-          />
+        <RecomendCard
+          key={`${item.name}-${item.id}`}
+          src={item.src}
+          desc={item.desc}
+          name={item.name}
+        />
       ))}
     </ul>
   );

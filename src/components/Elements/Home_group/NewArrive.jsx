@@ -1,4 +1,4 @@
-import { content } from "../../services/newMenu";
+import { content } from "../../../services/newMenu";
 import NewMenu from "./NewMenu";
 function NewArrive() {
   return (

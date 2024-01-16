@@ -1,8 +1,11 @@
-import Button from "../components/ButtonIcon/Button";
+import Button from "../components/Elements/ButtonIcon/Button";
 
 export default function About() {
   return (
-    <div id="about" className="min-h-screen  w-full  flex flex-col-reverse md:flex-row justify-between items-center md:px-24 px-3 md:mt-20 mt-10">
+    <div
+      id="about"
+      className="min-h-screen  w-full  flex flex-col-reverse md:flex-row justify-between items-center md:px-24 px-3 md:mt-20 mt-10"
+    >
       <Image />
       <Description />
     </div>

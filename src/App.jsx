@@ -1,25 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  About,
-  ChooseUs,
-  Home,
-  Menu,
-  Navbar,
-  RatingPage,
-  HearFromPeople,
-} from "./containers";
-import Footer from "./containers/Footer";
+import { RouterProvider} from "react-router-dom";
+import { router } from "./router";
 function App() {
   return (
     <>
-      <Navbar />
-      <Home />
-      <RatingPage />
-      <About />
-      <Menu />
-      <ChooseUs />
-      <HearFromPeople />
-      <Footer />
+      <RouterProvider router={router} ></RouterProvider>
     </>
   );
 }

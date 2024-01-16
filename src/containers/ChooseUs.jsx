@@ -1,4 +1,4 @@
-import Button from "../components/ButtonIcon/Button";
+import Button from "../components/Elements/ButtonIcon/Button";
 import ChooseCard from "../components/Fragments/ChooseCard";
 
 const content = [
@@ -47,10 +47,10 @@ function Main() {
   return (
     <ul className="flex md:px-32 md:flex-nowrap flex-wrap gap-10">
       {content.map((item) => (
-          <ChooseCard key={item.id}>
-            <ChooseCard.Image src={item.src} alt={`${item.name} photo`} />
-            <ChooseCard.Description name={item.name} title={item.title} />
-          </ChooseCard>
+        <ChooseCard key={item.id}>
+          <ChooseCard.Image src={item.src} alt={`${item.name} photo`} />
+          <ChooseCard.Description name={item.name} title={item.title} />
+        </ChooseCard>
       ))}
     </ul>
   );
