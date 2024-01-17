@@ -2,7 +2,7 @@ import About from "./About";
 import ChooseUs from "./ChooseUs";
 import Header from "./Header";
 import Menu from "./Menu";
-import Navbar from "./Navbar";
+import Navbar from "../../../components/Layouts/Navbar";
 import RatingPage from "./RatingPage";
 import HearFromPeople from "./HearFromPeople";
 import Footer from "./Footer";

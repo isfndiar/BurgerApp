@@ -1,4 +1,4 @@
-import Button from "../components/Elements/ButtonIcon/Button";
+import Button from "../../../components/Elements/ButtonIcon/Button";
 
 export default function About() {
   return (

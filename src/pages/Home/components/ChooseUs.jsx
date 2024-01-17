@@ -1,5 +1,5 @@
-import Button from "../components/Elements/ButtonIcon/Button";
-import ChooseCard from "../components/Fragments/ChooseCard";
+import Button from "../../../components/Elements/ButtonIcon/Button";
+import ChooseCard from "../../../components/Fragments/ChooseCard";
 
 const content = [
   {

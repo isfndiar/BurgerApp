@@ -1,5 +1,5 @@
-import Home from "../components/Elements/Home_group/Home.jsx";
-import NewArrive from "../components/Elements/Home_group/NewArrive.jsx";
+import Home from "../../../components/Elements/Home_group/Home.jsx";
+import NewArrive from "../../../components/Elements/Home_group/NewArrive.jsx";
 
 function Header() {
   return (

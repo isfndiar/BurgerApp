@@ -1,7 +1,9 @@
 import * as Icon from "react-feather";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
+  const { handleOpenCart } = props;
   const [isActive, setIsActive] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
@@ -53,7 +55,7 @@ function Navbar() {
     <nav className={`${visible ? "" : isNavActive} ${classNav}`}>
       <Logo />
       <ListMenu isActive={isActive} />
-      <SearchAndCart />
+      <SearchAndCart handleOpenCart={handleOpenCart} />
     </nav>
   );
 }
@@ -89,15 +91,24 @@ const ListMenu = ({ isActive }) => {
   );
 };
 
-const SearchAndCart = () => {
+const SearchAndCart = ({ handleOpenCart }) => {
   return (
     <div className="block md:flex md:gap-4 relative md:content-center ">
       <a className="w-10 h-10  rounded-full relative  flex justify-center">
         <Icon.Search className="absolute bottom-2" />
       </a>
-      <a className="bg-white  w-10 h-10 shadow-md rounded-full relative  flex justify-center  ">
-        <Icon.ShoppingBag className="absolute bottom-2" />
+      <a
+        onClick={handleOpenCart}
+        className="bg-white  w-10 h-10 shadow-md rounded-full relative  flex justify-center  "
+      >
+        <Icon.ShoppingBag className="absolute bottom-2 cursor-pointer" />
       </a>
+      <Link
+        to={`/login`}
+        className="bg-[var(--red)]  h-10 px-3 shadow-md rounded-md text-white text-[1rem] flex justify-center items-center hover:bg-[var(--redHover)]   "
+      >
+        Login
+      </Link>
     </div>
   );
 };

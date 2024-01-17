@@ -1,25 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "../Elements/ButtonIcon/Button";
 import InputForm from "../Elements/Input";
-import { login } from "../../services/auth.service";
-function FormLogin(props) {
+function FormRegister(props) {
   const [loginFailed, setLoginFailed] = useState("");
   const { text } = props;
   const handleLogin = (e) => {
     e.preventDefault();
-    const data = {
-      username: e.target.username.value,
-      password: e.target.password.value,
-    };
+    // const data = {
+    //   username: e.target.username.value,
+    //   password: e.target.password.value,
+    // };
 
-    login(data, (status, res) => {
-      if (status) {
-        localStorage.setItem("token", res);
-        window.location.href = "./home";
-      } else {
-        setLoginFailed(res.response.data);
-      }
-    });
+    localStorage.setItem("username", e.target.username.value);
+    localStorage.setItem("password", e.target.password.value);
   };
 
   const usernameRef = useRef(null);
@@ -36,12 +29,24 @@ function FormLogin(props) {
         label={"Username"}
         ref={usernameRef}
       />
+      <InputForm
+        type={"text"}
+        placeholder={"johndoe@gmail.com"}
+        name={"email"}
+        label={"Email"}
+      />
       {/* m38rmF$ */}
       <InputForm
         type={"password"}
-        placeholder={"m38rmF$"}
+        placeholder={"******"}
         name={"password"}
         label={"Password"}
+      />
+      <InputForm
+        type={"password"}
+        placeholder={"*******"}
+        name={"confirmpassword"}
+        label={"Confirm Password"}
       />
       {loginFailed && <p className="text-red-500">{loginFailed}</p>}
       <Button
@@ -55,4 +60,4 @@ function FormLogin(props) {
   );
 }
 
-export default FormLogin;
+export default FormRegister;
