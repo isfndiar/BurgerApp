@@ -20,8 +20,6 @@ export default function HomePage() {
     setIsOpen((isOpen) => !isOpen);
   };
 
-  useEffect(() => {}, [cart]);
-
   const handleCart = (id) => {
     if (cart.find((item) => item.id === id)) {
       setCart(

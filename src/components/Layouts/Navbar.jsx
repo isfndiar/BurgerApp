@@ -19,6 +19,7 @@ function Navbar(props) {
   text-[1.2rem] 
   py-[1.5rem] 
   px-[5%] z-50 
+  
   transition-all 
   ease-in-out  
   duration-500 
@@ -52,7 +53,11 @@ function Navbar(props) {
   }, [prevScrollPos]);
 
   return (
-    <nav className={`${visible ? "" : isNavActive} ${classNav}`}>
+    <nav
+      className={`${
+        visible ? "" : isNavActive
+      } ${classNav} backdrop-blur-md bg-white/80 shadow-md`}
+    >
       <Logo />
       <ListMenu isActive={isActive} />
       <SearchAndCart handleOpenCart={handleOpenCart} />
@@ -71,7 +76,7 @@ function Logo() {
 const ListMenu = ({ isActive }) => {
   return (
     <div
-      className={`ms-[20px] flex gap-[50px] ${
+      className={`ms-[20px] flex gap-[50px]  ${
         isActive ? "active" : ""
       } font-light`}
     >
