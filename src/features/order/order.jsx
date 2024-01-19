@@ -37,17 +37,17 @@ export default function ListOrder({ handleClose, isClose, cart }) {
   return (
     <div
       className={`min-h-screen bg-white fixed top-0 right-0 ${
-        isClose ? " w-1/2" : "w-0"
+        isClose ? " md:w-1/2 w-full" : "w-0"
       } z-[100] max-w-md transition-all duration-300 ease-in-out shadow-md `}
     >
       <X
         className="absolute top-9 left-4 hover:cursor-pointer text-2xl"
         onClick={handleClose}
       ></X>
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-20">
+      <table className="w-full  text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-20">
         <thead className="text-xs text-white uppercase bg-black dark:bg-gray-700 dark:text-white">
           <tr>
-            <th scope="col" className="px-6 py-3">
+            <th scope="col" className="px-6 py-3 ">
               name
             </th>
             <th scope="col" className="px-6 py-3">

@@ -14,9 +14,10 @@ function Navbar(props) {
   left-0 
   right-0 
   flex 
+  w-full
   justify-around 
   text-black 
-  text-[1.2rem] 
+  text-sm
   py-[1.5rem] 
   px-[5%] z-50 
   
@@ -44,6 +45,8 @@ function Navbar(props) {
     setIsActive(!isActive);
   };
 
+  const handleOpenMenu = () => {};
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -60,14 +63,18 @@ function Navbar(props) {
     >
       <Logo />
       <ListMenu isActive={isActive} />
-      <SearchAndCart handleOpenCart={handleOpenCart} />
+      <SearchAndCart
+        handleOpenCart={handleOpenCart}
+        isActive={isActive}
+        handleClick={handleClick}
+      />
     </nav>
   );
 }
 
 function Logo() {
   return (
-    <div className="text-[1.2rem] uppercase">
+    <div className="text-[1.2rem] uppercase  flex items-center">
       <a href={"#"}> UI LOVER</a>
     </div>
   );
@@ -76,11 +83,13 @@ function Logo() {
 const ListMenu = ({ isActive }) => {
   return (
     <div
-      className={`ms-[20px] flex gap-[50px]  ${
-        isActive ? "active" : ""
-      } font-light`}
+      className={` font-light   flex gap-[50px] ${
+        isActive
+          ? "bg-red-500 flex-col absolute top-0 w-1/2 min-h-screen "
+          : "hidden md:flex md:items-center ms-[20px] md:text-lg"
+      } `}
     >
-      <a href={"#menu"} className={`hover:text-blue-500`}>
+      <a href={"#menu"} className={`hover:text-blue-500 `}>
         Menu
       </a>
       <a href={`#food`} className={`hover:text-blue-500`}>
@@ -96,24 +105,27 @@ const ListMenu = ({ isActive }) => {
   );
 };
 
-const SearchAndCart = ({ handleOpenCart }) => {
+const SearchAndCart = ({ handleOpenCart, handleClick }) => {
   return (
-    <div className="block md:flex md:gap-4 relative md:content-center ">
-      <a className="w-10 h-10  rounded-full relative  flex justify-center">
-        <Icon.Search className="absolute bottom-2" />
+    <div className=" flex gap-4 relative items-center  ">
+      <a className="w-10 h-10  rounded-full relative  flex justify-center ">
+        <Icon.Search className="absolute bottom-2 md:inline hidden" />
       </a>
       <a
         onClick={handleOpenCart}
-        className="bg-white  w-10 h-10 shadow-md rounded-full relative  flex justify-center  "
+        className="bg-white  w-10 h-10 shadow-md rounded-full relative  flex justify-center me-4 md:me-0  "
       >
-        <Icon.ShoppingBag className="absolute bottom-2 cursor-pointer" />
+        <Icon.ShoppingBag className={` absolute bottom-2 cursor-pointer `} />
       </a>
-      <Link
-        to={`/login`}
-        className="bg-[var(--red)]  h-10 px-3 shadow-md rounded-md text-white text-[1rem] flex justify-center items-center hover:bg-[var(--redHover)]   "
-      >
+      <Link to={`/login`} className="button-login ">
         Login
       </Link>
+      <button className="inline-block md:hidden" onClick={handleClick}>
+        <span className="background-line"></span>
+        <span className="background-line"></span>
+        <span className="background-line"></span>
+      </button>
+      ;
     </div>
   );
 };

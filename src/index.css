@@ -30,10 +30,10 @@ body {
   background-color: var(--primary);
 }
 
+.background-line {
+  @apply w-[30px] my-2 h-[2px] bg-black block;
+}
 
-
-
-
-
-
-
+.button-login {
+  @apply bg-[var(--red)]  h-10 px-3 shadow-md rounded-md text-white text-[1rem] hidden md:flex md:justify-center md:items-center hover:bg-[var(--redHover)];
+}
