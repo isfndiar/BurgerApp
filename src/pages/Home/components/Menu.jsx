@@ -1,6 +1,9 @@
 import { listFood } from "../../../services/ListFood";
+import Loader from "../../../utils/Loader";
+// import MenuCard from "../../../components/Fragments/MenuCard";
 
-import MenuCard from "../../../components/Fragments/MenuCard";
+import { Suspense, lazy, React } from "react";
+const MenuCard = lazy(() => import("../../../components/Fragments/MenuCard"));
 const Menu = ({ handleCart }) => {
   return (
     <div
@@ -11,15 +14,16 @@ const Menu = ({ handleCart }) => {
       <ul className="flex flex-wrap justify-center text-center md:px-36 ">
         {listFood.map((item) => (
           <li key={item.id} className=" md:w-1/4 w-1/2 px-2  mt-10">
-            <MenuCard>
-              <MenuCard.Header src={item.img} />
-              <MenuCard.Section name={item.name} desc={item.desc} />
-              <MenuCard.Footer
+            <Suspense fallback={<Loader />}>
+              <MenuCard
+                src={item.img}
+                name={item.name}
+                desc={item.desc}
                 price={item.price}
                 id={item.id}
                 handleCart={handleCart}
               />
-            </MenuCard>
+            </Suspense>
           </li>
         ))}
       </ul>
