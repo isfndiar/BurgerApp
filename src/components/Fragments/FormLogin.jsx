@@ -15,7 +15,7 @@ function FormLogin(props) {
     login(data, (status, res) => {
       if (status) {
         localStorage.setItem("token", res);
-        window.location.href = "./home";
+        window.open("/home");
       } else {
         setLoginFailed(res.response.data);
       }

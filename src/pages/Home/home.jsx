@@ -8,10 +8,8 @@ import {
   HearFromPeople,
   Footer,
 } from "./components/index";
-import useLogin from "../../hooks/useLogin";
 import ListOrder from "../../features/order/order";
-import { useEffect, useState } from "react";
-import { listFood } from "../../services/ListFood";
+import { useState } from "react";
 export default function HomePage() {
   // const { username } = useLogin;
   const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +28,8 @@ export default function HomePage() {
     } else {
       setCart([...cart, { id, qty: 1 }]);
     }
-    console.log(cart);
   };
+
   return (
     <>
       <Navbar handleOpenCart={handleOpenCart} />
@@ -41,7 +39,6 @@ export default function HomePage() {
         isClose={isOpen}
         cart={cart}
       />
-
       <Header />
       <RatingPage />
       <About />
@@ -49,6 +46,7 @@ export default function HomePage() {
       <ChooseUs />
       <HearFromPeople />
       <Footer />
+      {/* <ModalCheckout/> */}
     </>
   );
 }

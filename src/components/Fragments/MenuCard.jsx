@@ -1,8 +1,8 @@
 import * as Icon from "react-feather";
 
-export default function MenuCard({ children }) {
+const MenuCard = ({ children }) => {
   return <div>{children}</div>;
-}
+};
 
 function Header({ src }) {
   return (
@@ -47,3 +47,5 @@ function Footer({ price, handleCart, id }) {
 MenuCard.Header = Header;
 MenuCard.Section = Section;
 MenuCard.Footer = Footer;
+
+export default MenuCard;

@@ -2,38 +2,52 @@ import { useRef, useEffect, useState } from "react";
 import { X } from "react-feather";
 import { listFood } from "../../services/ListFood";
 import Button from "../../components/Elements/ButtonIcon/Button";
-export default function ListOrder({ handleClose, isClose, cart }) {
+export default function ListOrder(props) {
+  const { handleClose, isClose, cart, onClickOrder } = props;
   const [totalPrice, setTotalPrice] = useState(0);
-  const cartLength = cart;
+  const [getMessage, setGetMessage] = useState("");
+  // const [getData, setGetData] = useState([]);
 
+  // total price
   useEffect(() => {
     const sum = cart.reduce((acc, item) => {
       const products = listFood.find((product) => product.id === item.id);
-
       return acc + products.price * item.qty;
     }, 0);
-
     setTotalPrice(sum);
   }, [cart]);
 
+  // handle Click item
+  const handleClick = (e) => {
+    e.preventDefault();
+    cart.map((item) => {
+      const products = listFood.find((product) => product.id === item.id);
+      setGetMessage(`${products.name} ${item.qty} /n`);
+    });
+    console.log(cart);
+    const messagge = `Pesanan anda adalah ${getMessage}`;
+    console.log(messagge);
+  };
+
+  // ketika ada barang
   const btnRef = useRef(null);
   useEffect(() => {
-    if (cartLength.length > 0) {
+    if (cart.length > 0) {
       btnRef.current.style.display = "inline-block";
     } else {
       btnRef.current.style.display = "none ";
     }
-  }, [cartLength]);
+  }, [cart.length]);
 
+  // is total price > 0
   const totalPriceRef = useRef(null);
-
   useEffect(() => {
-    if (cartLength.length > 0) {
+    if (cart.length > 0) {
       totalPriceRef.current.style.display = "table-row";
     } else {
       totalPriceRef.current.style.display = "none ";
     }
-  }, [cartLength]);
+  }, [cart.length]);
   return (
     <div
       className={`min-h-screen bg-white fixed top-0 right-0 ${
@@ -96,9 +110,10 @@ export default function ListOrder({ handleClose, isClose, cart }) {
           </tr>
         </tbody>
       </table>
-      <div className=" flex justify-center text-center mt-10 transition-all duration-300">
+      <div className="flex justify-center text-center mt-10 transition-all duration-300">
         <Button
           ref={btnRef}
+          onClick={handleClick}
           classname={`text-sm m-auto  ${isClose ? "opacity-1" : "opacity-0"}`}
         >
           Order Now

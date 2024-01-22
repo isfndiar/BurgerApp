@@ -1,13 +1,14 @@
 import { listFood } from "../../../services/ListFood";
+
 import MenuCard from "../../../components/Fragments/MenuCard";
-export default function Menu({ handleCart }) {
+const Menu = ({ handleCart }) => {
   return (
     <div
       className="bg-[var(--black)] min-h-screen text-white py-20 mt-20"
       id="food"
     >
       <Header />
-      <ul className="flex flex-wrap     justify-center text-center md:px-36 ">
+      <ul className="flex flex-wrap justify-center text-center md:px-36 ">
         {listFood.map((item) => (
           <li key={item.id} className=" md:w-1/4 w-1/2 px-2  mt-10">
             <MenuCard>
@@ -24,7 +25,7 @@ export default function Menu({ handleCart }) {
       </ul>
     </div>
   );
-}
+};
 
 function Header() {
   return (
@@ -33,3 +34,5 @@ function Header() {
     </h1>
   );
 }
+
+export default Menu;
