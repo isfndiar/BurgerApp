@@ -1,12 +1,14 @@
 import * as Icon from "react-feather";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useTotalCart from "../../hooks/useTotalCart";
 
 function Navbar(props) {
   const { handleOpenCart } = props;
   const [isActive, setIsActive] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
+  const { totalCart } = useTotalCart();
 
   const classNav = `
   fixed  
@@ -45,8 +47,6 @@ function Navbar(props) {
     setIsActive(!isActive);
   };
 
-  const handleOpenMenu = () => {};
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
@@ -65,7 +65,7 @@ function Navbar(props) {
       <ListMenu isActive={isActive} />
       <SearchAndCart
         handleOpenCart={handleOpenCart}
-        isActive={isActive}
+        // isActive={isActive}
         handleClick={handleClick}
       />
     </nav>
@@ -115,6 +115,7 @@ const SearchAndCart = ({ handleOpenCart, handleClick }) => {
         onClick={handleOpenCart}
         className="bg-white  w-10 h-10 shadow-md rounded-full relative  flex justify-center me-4 md:me-0  "
       >
+        <div className="rounded-full bg-red-600 text-white absolute z-50"></div>
         <Icon.ShoppingBag className={` absolute bottom-2 cursor-pointer `} />
       </a>
       <Link to={`/login`} className="button-login ">
