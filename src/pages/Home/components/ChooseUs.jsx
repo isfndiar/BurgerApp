@@ -1,33 +1,10 @@
-import Button from "../../../components/Elements/ButtonIcon/Button";
-import ChooseCard from "../../../components/Fragments/ChooseCard";
-
-const content = [
-  {
-    id: crypto.randomUUID(),
-    src: "food.png",
-    name: "Hot Deal & Offers",
-    title:
-      "Lorem ipsum dolor sit amet consectetur adipisicing  elit. Iure libero alias, deleniti ex deserunt quod nemo praesentium consequuntur cum velit!",
-  },
-  {
-    id: crypto.randomUUID(),
-    src: "food.png",
-    name: "Experience Chef",
-    title:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, consequuntur.",
-  },
-  {
-    id: crypto.randomUUID(),
-    src: "food.png",
-    name: "Fastest Delivery",
-    title:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim, consequuntur.",
-  },
-];
+import Button from "@/components/Elements/ButtonIcon/Button";
+import ChooseCard from "@/components/Fragments/ChooseCard";
+import { content } from "@/services/recomendation.services";
 
 export default function ChooseUs() {
   return (
-    <div id="service" className="min-h-screen text-center py-20">
+    <div id="service" className="text-center py-20">
       <Header />
       <Main />
       <Button classname={"mt-20 shadow-none"}>Contact Us</Button>
@@ -37,7 +14,7 @@ export default function ChooseUs() {
 
 function Header() {
   return (
-    <h1 className=" text-5xl font-semibold font-Kalnia mb-20">
+    <h1 className=" md:text-5xl text-3xl font-semibold font-Kalnia mb-20">
       Why Choose Us?
     </h1>
   );
@@ -45,12 +22,15 @@ function Header() {
 
 function Main() {
   return (
-    <ul className="flex md:px-32 md:flex-nowrap flex-wrap gap-10">
+    <ul className="flex justify-center flex-wrap gap-10">
       {content.map((item) => (
-        <ChooseCard key={item.id}>
-          <ChooseCard.Image src={item.src} alt={`${item.name} photo`} />
-          <ChooseCard.Description name={item.name} title={item.title} />
-        </ChooseCard>
+        <ChooseCard
+          key={item.id}
+          src={item.src}
+          alt={`${item.name} photo`}
+          name={item.name}
+          title={item.title}
+        ></ChooseCard>
       ))}
     </ul>
   );

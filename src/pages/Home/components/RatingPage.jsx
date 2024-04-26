@@ -1,29 +1,9 @@
-const listNew = [
-  {
-    id: crypto.randomUUID(),
-    text1: "Awesome",
-    text2: "Branches",
-    amount: "08+",
-  },
-  {
-    id: crypto.randomUUID(),
-    text1: "Expert",
-    text2: "Chef",
-    amount: "40+",
-    classname: "border-x border-white",
-  },
-  {
-    id: crypto.randomUUID(),
-    text1: "Service",
-    text2: "Experience",
-    amount: "12Y+",
-  },
-];
+import { ratingData } from "../../../services/ratingpage.services";
 
 export default function RatingPage() {
   return (
-    <div className="w-full bg-black  text-white text-semibold flex justify-between mt-16 py-16">
-      {listNew.map((list, x) => (
+    <div className="w-full mt-16 py-16  flex justify-between   bg-black  text-white text-semibold overflow-hidden">
+      {ratingData.map((list, x) => (
         <Rating
           key={list.id}
           text1={list.text1}
@@ -40,9 +20,9 @@ function Rating(props) {
   const { amount, text1, text2, classname } = props;
   return (
     <div
-      className={`flex items-center gap-3 md:px-[100px] px-7 ${classname} text-center  `}
+      className={`flex items-center gap-3 md:px-[100px] px-7 ${classname}  text-center  `}
     >
-      <h3 className=" font-Kalnia md:text-[4rem] text-lg ">{amount}</h3>
+      <h3 className=" font-Kalnia  md:text-[4rem] text-lg ">{amount}</h3>
       <div className=" font-montserrat font-light md:text-xl text-sm ">
         <p>{text1}</p>
         <p>{text2}</p>

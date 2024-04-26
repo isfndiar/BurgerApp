@@ -2,110 +2,69 @@ import * as Icon from "react-feather";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useTotalCart from "../../hooks/useTotalCart";
+import { styles } from "../../styles";
+import useHandleScroll from "../../hooks/useHandleScroll";
 
 function Navbar(props) {
   const { handleOpenCart } = props;
   const [isActive, setIsActive] = useState(false);
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
-  const [visible, setVisible] = useState(true);
   const { totalCart } = useTotalCart();
-
-  const classNav = `
-  fixed  
-  top-0 
-  left-0 
-  right-0 
-  flex 
-  w-full
-  justify-around 
-  text-black 
-  text-sm
-  py-[1.5rem] 
-  px-[5%] z-50 
-  
-  transition-all 
-  ease-in-out  
-  duration-500 
-  `;
-
+  const { visible } = useHandleScroll();
   const isNavActive = "translate-y-[-100px]";
-
-  const handleScroll = () => {
-    const currentScrollPos = window.scrollY;
-    const isVisible = prevScrollPos > currentScrollPos;
-    setPrevScrollPos(currentScrollPos);
-    setVisible(isVisible);
-    // if (window.scrollY == 200 || window.scrollY > 200) {
-    //   setVisible(!true);
-    // } else if (window.scrollY == 0) {
-    //   setIsActive(false);
-    //   setVisible(true);
-    // }
-  };
+  const { fixedTop, flexAround, transitionDefault } = styles;
 
   const handleClick = () => {
     setIsActive(!isActive);
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollPos]);
-
   return (
     <nav
       className={`${
         visible ? "" : isNavActive
-      } ${classNav} backdrop-blur-md bg-white/80 shadow-md`}
+      } ${fixedTop} ${flexAround} ${transitionDefault}text-black text-sm w-full py-5 z-50 backdrop-blur-md bg-white/80 shadow-md`}
     >
-      <Logo />
-      <ListMenu isActive={isActive} />
-      <SearchAndCart
-        handleOpenCart={handleOpenCart}
-        // isActive={isActive}
-        handleClick={handleClick}
+      <div className="text-[1.2rem] uppercase  flex items-center">
+        <a href={"#"}> UI LOVER</a>
+      </div>
+      <ListMenu
+        className={`font-light hidden md:gap-[50px] md:flex md:items-center md:ms-[20px] md:text-lg`}
       />
+
+      <SearchAndCart
+        isActive={isActive}
+        handleOpenCart={handleOpenCart}
+        handleClick={handleClick}
+      >
+        {isActive ? (
+          <ListMenu
+            className={`md:hidden w-[120px] bg-white absolute top-10 right-0 flex flex-col`}
+          />
+        ) : null}
+      </SearchAndCart>
     </nav>
   );
 }
 
-function Logo() {
+const ListMenu = ({ className }) => {
   return (
-    <div className="text-[1.2rem] uppercase  flex items-center">
-      <a href={"#"}> UI LOVER</a>
-    </div>
-  );
-}
-
-const ListMenu = ({ isActive }) => {
-  return (
-    <div
-      className={` font-light   flex gap-[50px] ${
-        isActive
-          ? "bg-red-500 flex-col absolute top-0 w-1/2 min-h-screen "
-          : "hidden md:flex md:items-center ms-[20px] md:text-lg"
-      } `}
-    >
-      <a href={"#menu"} className={`hover:text-blue-500 `}>
+    <div className={`${className}  `}>
+      <a href={"#menu"} className={`${styles.hoverBgRed}`}>
         Menu
       </a>
-      <a href={`#food`} className={`hover:text-blue-500`}>
+      <a href={`#food`} className={`${styles.hoverBgRed}`}>
         Food
       </a>
-      <a href={`#service`} className={`hover:text-blue-500`}>
+      <a href={`#service`} className={`${styles.hoverBgRed}`}>
         Services
       </a>
-      <a href={`#about`} className={`hover:text-blue-500`}>
+      <a href={`#about`} className={`${styles.hoverBgRed}`}>
         About Us
       </a>
     </div>
   );
 };
 
-const SearchAndCart = ({ handleOpenCart, handleClick }) => {
+const SearchAndCart = ({ handleOpenCart, handleClick, children, isActive }) => {
   return (
     <div className=" flex gap-4 relative items-center  ">
       <a className="w-10 h-10  rounded-full relative  flex justify-center ">
@@ -121,12 +80,27 @@ const SearchAndCart = ({ handleOpenCart, handleClick }) => {
       <Link to={`/login`} className="button-login ">
         Login
       </Link>
-      <button className="inline-block md:hidden" onClick={handleClick}>
-        <span className="background-line"></span>
-        <span className="background-line"></span>
-        <span className="background-line"></span>
+      <button
+        className="inline-block md:hidden group relative"
+        onClick={handleClick}
+      >
+        <span
+          className={`background-line origin-top-left transition-all ${
+            !isActive ? "" : "rotate-45"
+          }`}
+        ></span>
+        <span
+          className={`background-line transition-all ${
+            !isActive ? "" : "scale-0"
+          }`}
+        ></span>
+        <span
+          className={`background-line transition-all origin-bottom-left ${
+            !isActive ? "" : "-rotate-45"
+          }`}
+        ></span>
+        {children}
       </button>
-      ;
     </div>
   );
 };

@@ -1,9 +1,9 @@
-
 export default function ChooseCard(props) {
-  const { children } = props;
+  const { src, alt, name, title } = props;
   return (
-    <div className="flex flex-col  items-center py-5 px-3  md:py-12 md:px-10 bg-white rounded-xl w-1/3 shadow-md ">
-      {children}
+    <div className=" w-full max-w-sm flex flex-col  items-center  py-12 px-10 bg-white rounded-xl  shadow-md ">
+      <Image src={src} alt={alt} />
+      <Description name={name} title={title} />
     </div>
   );
 }

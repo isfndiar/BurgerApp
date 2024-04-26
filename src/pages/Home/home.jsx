@@ -11,7 +11,6 @@ import {
 import ListOrder from "../../features/order/order";
 import { useState } from "react";
 export default function HomePage() {
-  // const { username } = useLogin;
   const [isOpen, setIsOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const handleOpenCart = () => {
